@@ -41,7 +41,7 @@ popularity = raw, приведённый к диапазону 1..5
 
 curl -X GET https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events
 
-[tests/get.png](https://github.com/dostoevchinaa/cityevents/blob/d4aa4e54479b8e9602f52969cf5dc2e63d6a15a1/tests/get.png)
+![Alt text](https://github.com/dostoevchinaa/cityevents/blob/d4aa4e54479b8e9602f52969cf5dc2e63d6a15a1/tests/get.png)
 
 ###3.2.GET /events/{id}
 
