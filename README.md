@@ -1,6 +1,6 @@
 ##1. Общая информация
 - CMS	WordPress 6.7
-- Хостинг	Timeweb (платный)
+- Хостинг	Timeweb
 - Домен	https://ck482085-wordpress-9w0kp.tw1.ru
 - Логин: admin
 - Пароль: O5dYL$kZk78T
