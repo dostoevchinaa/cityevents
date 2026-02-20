@@ -47,14 +47,22 @@ curl -X GET https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events
 
 curl -X GET https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events/16
 
+![Alt text](https://github.com/dostoevchinaa/cityevents/blob/9cfb19305b695741c5cbf0296cf5322d14b2a31b/tests/get%7Bid%7D.png)
+
 ###3.3. POST /events
 
-curl -X POST https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events -H "Content-Type: application/json" -u admin:3djfOrthpjQibQGlgjG6yU1L -d "{\"title\":\"Новое событие\",\"place\":\"Казань\",\"start_at\":\"2026-04-01 19:00\",\"end_at\":\"2026-04-01 22:00\",\"tags\":[\"концерт\"],\"capacity\":1000,\"status\":\"publish\"}"
+curl -X POST https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events -H "Content-Type: application/json" -u admin:3djfOrthpjQibQGlgjG6yU1L -d "{\"title\":\"Концерт в Ессентуках\",\"place\":\"Ессентуки, Курортный парк\",\"start_at\":\"2026-04-01 19:00\",\"end_at\":\"2026-04-01 22:00\",\"tags\":[\"концерт\", \"open-air\", \"курорт\"],\"capacity\":2500,\"status\":\"publish\"}"
+
+![Alt text](https://github.com/dostoevchinaa/cityevents/blob/9cfb19305b695741c5cbf0296cf5322d14b2a31b/tests/post.png)
 
 ###3.4.PUT /events/{id}
 
-curl -X PUT https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events/23 -H "Content-Type: application/json" -u admin:3djfOrthpjQibQGlgjG6yU1L -d "{\"title\":\"Обновлённое название\",\"capacity\":1500}"
+curl -X PUT https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events/23 -H "Content-Type: application/json" -u admin:3djfOrthpjQibQGlgjG6yU1L -d "{\"title\":\"Новый концерт в Ессентуках\",\"capacity\":1500}"
+
+![Alt text](https://github.com/dostoevchinaa/cityevents/blob/9cfb19305b695741c5cbf0296cf5322d14b2a31b/tests/put%20%D1%81%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%BE%D0%BC.png)
 
 ###3.5.DELETE /events/{id}
 
 curl -X DELETE https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events/23 -H "Content-Type: application/json" -u admin:3djfOrthpjQibQGlgjG6yU1L
+
+![Alt text](https://github.com/dostoevchinaa/cityevents/blob/9cfb19305b695741c5cbf0296cf5322d14b2a31b/tests/delete%20%D0%B8%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%20%D0%B2%D1%81%D0%B5%D1%85.png)
