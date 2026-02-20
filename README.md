@@ -41,6 +41,8 @@ popularity = raw, приведённый к диапазону 1..5
 
 curl -X GET https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events
 
+tests/get.png
+
 ###3.2.GET /events/{id}
 
 curl -X GET https://ck482085-wordpress-9w0kp.tw1.ru/wp-json/events/v1/events/16
