@@ -163,22 +163,22 @@ add_action('init', function() {
         'labels' => [
             'name' => 'События',
             'singular_name' => 'Событие',
-            'menu_name' => 'События',          // название в меню
-            'all_items' => 'Все события',       // текст в меню
-            'add_new' => 'Добавить событие',    // кнопка добавления
+            'menu_name' => 'События',         
+            'all_items' => 'Все события',     
+            'add_new' => 'Добавить событие',   
             'edit_item' => 'Редактировать событие'
         ],
         'public' => true,
-        'show_ui' => true,                       // 👈 обязательно!
-        'show_in_menu' => true,                   // 👈 обязательно!
+        'show_ui' => true,                      
+        'show_in_menu' => true,                  
         'show_in_nav_menus' => true,
         'show_in_admin_bar' => true,
         'show_in_rest' => true,
         'supports' => ['title', 'editor', 'custom-fields'],
         'has_archive' => true,
         'rewrite' => ['slug' => 'events'],
-        'menu_position' => 25,                    // позиция в меню (после комментариев)
-        'menu_icon' => 'dashicons-calendar',      // иконка в меню (календарь)
+        'menu_position' => 25,                   
+        'menu_icon' => 'dashicons-calendar',    
     ]);
 });
 
@@ -263,9 +263,8 @@ function kgn_calculate_popularity($post_id) {
     return $result;
 }
 
-// Временно! Заполняем мета-поле status для событий 16 и 17
 add_action('init', function() {
-    $events_to_fix = [16, 17]; // ID событий, которые не видны
+    $events_to_fix = [16, 17];
     foreach ($events_to_fix as $id) {
         $post = get_post($id);
         if ($post && $post->post_type === 'event') {
