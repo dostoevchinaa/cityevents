@@ -347,19 +347,16 @@ add_action('rest_api_init', function() {
 function kgn_get_events_callback($request) {
     $per_page = 10;
     
-    // Получаем ВСЕ события
     $all_events = get_posts([
         'post_type' => 'event',
         'posts_per_page' => -1,
         'post_status' => 'any'
     ]);
     
-    // Логируем, сколько нашли
     error_log("Всего событий в базе: " . count($all_events));
     
     $events_data = [];
     foreach ($all_events as $event) {
-        // Логируем каждое событие
         error_log("Обрабатываю событие ID: " . $event->ID . ", заголовок: " . $event->post_title);
         
         $place = get_post_meta($event->ID, 'place', true);
@@ -386,10 +383,7 @@ function kgn_get_events_callback($request) {
     
     error_log("Всего добавлено в data: " . count($events_data));
     
-    // Временно отключаем сортировку для диагностики
-    // usort(...);
-    
-    // Убираем служебное поле
+
     foreach ($events_data as &$event) {
         unset($event['start_timestamp']);
     }
@@ -460,10 +454,8 @@ function kgn_create_event_callback($request) {
         );
     }
 
-    // 👇 ВАЖНО: определяем правильный статус для поста
     $post_status = 'draft'; // по умолчанию
     
-    // Если в запросе передан status и он равен 'published' или 'publish'
     if (isset($params['status'])) {
         if ($params['status'] === 'published' || $params['status'] === 'publish') {
             $post_status = 'publish';
@@ -473,7 +465,7 @@ function kgn_create_event_callback($request) {
     $post_id = wp_insert_post([
         'post_title' => sanitize_text_field($params['title']),
         'post_type' => 'event',
-        'post_status' => $post_status,  // 👈 используем правильный статус
+        'post_status' => $post_status, 
         'post_content' => $params['description'] ?? ''
     ]);
     
@@ -491,7 +483,7 @@ function kgn_create_event_callback($request) {
     update_post_meta($post_id, 'tags', json_encode($tags, JSON_UNESCAPED_UNICODE));
     update_post_meta($post_id, 'capacity', $capacity);
     
-    // 👇 Сохраняем статус в мета-поле
+    // 
     $meta_status = isset($params['status']) ? $params['status'] : 'draft';
     update_post_meta($post_id, 'status', $meta_status);
     
